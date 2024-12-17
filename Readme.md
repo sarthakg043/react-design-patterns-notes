@@ -19,6 +19,11 @@ Some of the key benefits of using design patterns in React include:
 - Working with forms
 - Incorporating functional concepts into our code
 
+### Table of Contents
+1. [Layout Components](#1-layout-components)
+2. [Container Components](#2-container-components)
+3. [Controlled and Uncontrolled Components](#3-controlled-and-uncontrolled-components)
+
 ## 1. Layout Components
 Separate the component and the layout
 
@@ -107,7 +112,7 @@ class DataContainer extends React.Component {
 ### [Example Code](Container_Components/Readme.md)
 1. [E-Commerce](Container_Components/ecommerce/README.md)
 
-## 2. Controlled and Uncontrolled Components
+## 3. Controlled and Uncontrolled Components
 - <b>Uncontrolled Components: </b> Components that keep track of their own states and release data only when some event occurs (that is, the submit event for HTML forms)
 - <b>Controlled Components: </b> Components that do not keep track of their own state-all state is passed in as props (that is, when we use the useState Hook with text inputs)
 
@@ -140,5 +145,6 @@ const MyComponent = ({ data, changeData, onSubmit }) = {
 ### [Example Code](Controlled_Uncontrolled_Components/Readme.md)
 1. [Forms](Controlled_Uncontrolled_Components/forms/README.md)
 2. [Modals](Controlled_Uncontrolled_Components/modals/README.md)
+3. [Onboarding Flows](Controlled_Uncontrolled_Components/onboardingFlow/README.md)
 
 

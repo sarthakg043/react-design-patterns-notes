@@ -1,7 +1,7 @@
 # Controlled and Uncontrolled Modals
 
 ## Overview
-
+This document provides an in-depth comparison between controlled and uncontrolled modals in React. It explains the key differences in their implementation and usage, highlighting how uncontrolled modals manage their own state internally, while controlled modals rely on parent components to manage their state through props. The document includes code examples for both types of modals, demonstrating how to create and use them effectively in a React application.
 
 ## Uncontrolled Modal
 The modal is uncontrolled because it itself is controlling whether or not it is opened or closed.
