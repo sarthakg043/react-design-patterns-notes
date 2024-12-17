@@ -1,8 +1,10 @@
 import CurrentUserLoader from "./components/CurrentUserLoader"
+import DataSource from "./components/DataSource"
 import ProductInfo from "./components/ProductInfo"
 import ResourceLoader from "./components/ResourceLoader"
 import UserInfo from "./components/UserInfo"
 import UserLoader from "./components/UserLoader"
+import { getUserDataByID } from "./dataFetchingFunctions"
 
 function App() {
 
@@ -32,6 +34,13 @@ function App() {
       <ResourceLoader resourceName="product" resourceUrl="/products/1234">
         <ProductInfo />
       </ResourceLoader>
+
+      <DataSource 
+        resourceName="user" 
+        getDataFunc={() => getUserDataByID(123)}
+      >
+        <UserInfo />
+      </DataSource>
     </>
   )
 }

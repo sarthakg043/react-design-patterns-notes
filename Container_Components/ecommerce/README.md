@@ -1,7 +1,7 @@
 # React Container Components
 
 ## Overview
-The code demonstrates a React application where the parent component (`CurrentUserLoader`) is responsible for fetching user data, and the child component (`UserInfo`) is focused on displaying this data. The structure follows the "Container-Presenter" pattern, which separates concerns of data fetching and UI presentation.
+This document provides a comprehensive guide on implementing the "Container-Presenter" pattern in a React application, focusing on separating data fetching and UI presentation concerns. It explains the creation and usage of `CurrentUserLoader`, `UserInfo`, `UserLoader`, `ResourceLoader`, and `DataSource` components, demonstrating how to fetch and display user data efficiently. The document also includes code examples and explanations for each component, highlighting key concepts such as state management, conditional rendering, and prop management to ensure scalability and maintainability in React applications.
 
 ---
 
@@ -205,4 +205,72 @@ It is the same thing just we are setting the prop name dynamically to make it ge
 <ResourceLoader resourceName="product" resourceUrl="/products/1234">
   <ProductInfo />
 </ResourceLoader>
+```
+This helps us prevent the same `fetching logic`
+```jsx
+    const [state, setState] = useState(null)
+
+
+    useEffect(() => {
+        (async () => {
+            const response = await axios.get(`/api${resourceUrl}`)
+            setState(response.data)
+        })();
+    }, [resourceUrl])
+```
+accross different components of the React application.
+
+## Making DataSource
+The `ResourceLoader` is a good stopping point. However we can go one step ahead and make a component which doesn't even know where its data is coming from.
+Instead of having `resourceUrl` prop, we will have a `getDataFunc` prop.
+
+```jsx
+const DataSource = ({
+    children,
+    getDataFunc = () => {},
+    resourceName,
+}) => {
+  const [state, setState] = useState(null)
+
+
+  useEffect(() => {
+    (async () => {
+      const data = await getDataFunc();
+      setState(data)
+    })();
+  }, [getDataFunc])
+
+  // rest of the logic same as ResourceLoader
+
+}
+```
+
+### Data Fetching Functions
+The data fetching functions can be stored in a separate js file `dataFetchingFunctions.js`
+
+```js
+import axios from "axios";
+
+const getServerData = async (url) => {
+    const response = await axios.get(`/api${url}`)
+    return response.data;
+}
+
+const getUserDataByID = async (userId) => {
+    const response = await getServerData(`/users/${userId}`)
+    return response;
+}
+
+export { getServerData, getUserDataByID }
+```
+These can be imported and given to `DataSourceComponent`.
+```jsx
+import {getUserDataByID} from './dataFetchingFunctions.js'
+
+<DataSource 
+    resourceName="user" 
+    getDataFunc={() => getUserDataByID(123)}
+>
+    <UserInfo />
+</DataSource>
 ```

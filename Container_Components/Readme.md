@@ -2,7 +2,8 @@
 
 ## Table of Contents
 1. [E-Commerce](#1-ecommerce)
-1. [E-Commerce 2: Making UserLoader](#2-ecommerce-2)
+2. [E-Commerce 2: Making UserLoader](#2-ecommerce-2)
+3. [E-Commerce 3: Making ResourceLoader](#3-ecommerce-3)
 
 ## 1: Ecommerce
 We separate the logic of fetching and displaying data by leveraging `React.Children.map` and `React.cloneElement`. Such that the parent container has `useState` and `useEffect` to load the data. The component is called `CurrentUserLoader`. This is given children component like `UserInfo` component which display User data.
@@ -58,6 +59,17 @@ We modify the `CurrentUserLoader` to load any user given the user's `id` and cal
 [Code Example](ecommerce/README.md#making-userloader)
 
 ## 3: Ecommerce 3
-Now, instead of having a container that loads a specific type of resource, let's create a generic container that can load any type of resource.
+Now, instead of having a container that loads a specific type of resource, let's create a generic container that can load any type of resource. We call it `ResourceLoader`. And we utilise the `js { [resourceName]: state }` to dynamically set prop name and state on fetching data.
+
+```jsx
+<ResourceLoader resourceName="product" resourceUrl="/products/1234">
+    <ProductInfo />
+</ResourceLoader>
+```
 
 [Code Example](ecommerce/README.md#making-resource-loader)
+
+## 4: Ecommerce 4
+The `ResourceLoader` is a good stopping point. However we can go one step ahead and make a component which doesn't even know where its data is coming from.
+
+[Code Example](ecommerce/README.md#making-datasource)
