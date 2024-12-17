@@ -164,4 +164,45 @@ This is how we refactored the `CurrenUserLoader` into a more generic `UserLoader
 ## Making Resource Loader
 This is a more generic loader made to load any type of resource and not just users.
 
+```jsx
+const ResourceLoader = ({
+    children,
+    resourceUrl,
+    resourceName,
+}) => {
+    const [state, setState] = useState(null)
 
+
+    useEffect(() => {
+        (async () => {
+            const response = await axios.get(`/api${resourceUrl}`)
+            setState(response.data)
+        })();
+    }, [resourceUrl])
+
+    return (
+        <>
+            {React.Children.map(children, child => {
+                if (React.isValidElement(child)) {
+                    // [resourceName]: state is a way to dynamically set the key for the state object.
+                    return React.cloneElement(child, { [resourceName]: state });
+                }
+                return child;
+            })}
+        </>
+    )
+}
+```
+
+It is the same thing just we are setting the prop name dynamically to make it generic. Based on prop name, the Child element which contains displaying logic will extract information. Making the resource loader load both types of resources.
+
+### Example Code
+
+```jsx
+<ResourceLoader resourceName="user" resourceUrl="/users/123">
+  <UserInfo />
+</ResourceLoader>
+<ResourceLoader resourceName="product" resourceUrl="/products/1234">
+  <ProductInfo />
+</ResourceLoader>
+```
