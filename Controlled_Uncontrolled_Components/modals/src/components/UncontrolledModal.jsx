@@ -20,7 +20,7 @@ const ModalBody = styled.div`
 `;
 
 
-const Modal = ({
+const UncontrolledModal = ({
   children
 }) => {
 
@@ -32,8 +32,6 @@ const Modal = ({
       {isOpen && (
         <ModalBackground onClick={()=> setIsOpen(false)}>
           <ModalBody onClick={(e)=> e.stopPropagation()}>
-            {/* onClick={(e)=> e.stopPropagation()} prevents the ModalBackground from closing the modal when clicked */}
-            {/* It stops the event from bubbling up to the parent element */}
             <button onClick={()=> setIsOpen(false)}>Close Modal</button>
             {children}
           </ModalBody>
@@ -43,4 +41,4 @@ const Modal = ({
   )
 }
 
-export default Modal
+export default UncontrolledModal

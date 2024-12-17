@@ -106,3 +106,39 @@ class DataContainer extends React.Component {
 
 ### [Example Code](Container_Components/Readme.md)
 1. [E-Commerce](Container_Components/ecommerce/README.md)
+
+## 2. Controlled and Uncontrolled Components
+- <b>Uncontrolled Components: </b> Components that keep track of their own states and release data only when some event occurs (that is, the submit event for HTML forms)
+- <b>Controlled Components: </b> Components that do not keep track of their own state-all state is passed in as props (that is, when we use the useState Hook with text inputs)
+
+Uncontrolled Component:
+```jsx
+const MyComponent = ({ onSubmit }) = {
+    const [someState, setSomeState] = useState(...);
+
+    return...;
+}
+
+‹MyComponent onSubmit={data => ...} /›
+```
+
+Controlled Component:
+```jsx
+const MyComponent = ({ data, changeData, onSubmit }) = {
+    return...;
+}
+
+<MyComponent
+    data={...}
+    changeData={() => ...}
+    onSubmit={() => ...}
+/>
+```
+- We generally prefer Controlled Components.
+- Controlled components are easier to test.
+
+### [Example Code](Controlled_Uncontrolled_Components/Readme.md)
+1. [Forms](Controlled_Uncontrolled_Components/forms/README.md)
+2. [Modals](Controlled_Uncontrolled_Components/modals/README.md)
+
+
