@@ -42,7 +42,7 @@ Make separate components with layout in one and components in other making it re
 > Our Components shouldn't know where they are being displayed on the page
 <hr>
 
-### [Example Code](Layout_components/Readme.md)
+### [Example Code](Layout_Components/Readme.md)
 1. [Split Screen Component](Layout_Components/01splitScreen/README.md)
 2. [Lists and List Items](Layout_Components/02listsAndListItems/README.md)
 3. [Modals](Layout_Components/03modals/README.md)
@@ -104,5 +104,5 @@ class DataContainer extends React.Component {
 > Container Components handle the logic, while child components handle the rendering
 <hr>
 
-### [Example Code](Container_components/Readme.md)
+### [Example Code](Container_Components/Readme.md)
 1. [E-Commerce](Container_Components/ecommerce/README.md)
