@@ -4,6 +4,7 @@
 1. [E-Commerce](#1-ecommerce)
 2. [E-Commerce 2: Making UserLoader](#2-ecommerce-2)
 3. [E-Commerce 3: Making ResourceLoader](#3-ecommerce-3)
+4. [E-Commerce 4: Making DataSource](#4-ecommerce-4)
 
 ## 1: Ecommerce
 We separate the logic of fetching and displaying data by leveraging `React.Children.map` and `React.cloneElement`. Such that the parent container has `useState` and `useEffect` to load the data. The component is called `CurrentUserLoader`. This is given children component like `UserInfo` component which display User data.
