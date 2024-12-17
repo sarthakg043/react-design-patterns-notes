@@ -274,3 +274,30 @@ import {getUserDataByID} from './dataFetchingFunctions.js'
     <UserInfo />
 </DataSource>
 ```
+
+### Loading Data from Local Storage
+Lets make a function to load data from localstorage.
+
+```js
+const getUserFromLocalStorage = (userId) => {
+    const user = localStorage.getItem(userId);
+    return JSON.parse(user);
+}
+```
+
+This is a perfect example of how `DataSource` can be used to not only fetch data from server but from any place.
+```jsx
+<DataSource 
+    resourceName="user" 
+    getDataFunc={() => getUserDataByID(234)}
+>
+    <UserInfo />
+</DataSource>
+<hr />
+<DataSource
+    resourceName="user"
+    getDataFunc={() => getUserFromLocalStorage(123)}
+>
+    <UserInfo />
+</DataSource>
+```

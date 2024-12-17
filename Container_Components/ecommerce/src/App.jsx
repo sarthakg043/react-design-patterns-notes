@@ -1,12 +1,29 @@
+import { useEffect } from "react"
 import CurrentUserLoader from "./components/CurrentUserLoader"
 import DataSource from "./components/DataSource"
 import ProductInfo from "./components/ProductInfo"
 import ResourceLoader from "./components/ResourceLoader"
 import UserInfo from "./components/UserInfo"
 import UserLoader from "./components/UserLoader"
-import { getUserDataByID } from "./dataFetchingFunctions"
+import { getUserDataByID, getUserFromLocalStorage } from "./dataFetchingFunctions"
 
 function App() {
+
+  useEffect(() => {
+    const user1 = {
+      id: "123",
+      name: "John Doe",
+      age: 54,
+      hairColor: "brown",
+      hobbies: [
+        "swimming",
+        "bicycling",
+        "video games"
+      ]
+    }
+    localStorage.setItem(`${user1.id}`, JSON.stringify(user1))
+  }, [])
+
 
   return (
 
@@ -34,10 +51,17 @@ function App() {
       <ResourceLoader resourceName="product" resourceUrl="/products/1234">
         <ProductInfo />
       </ResourceLoader>
-
+      <hr />
       <DataSource 
         resourceName="user" 
-        getDataFunc={() => getUserDataByID(123)}
+        getDataFunc={() => getUserDataByID(234)}
+      >
+        <UserInfo />
+      </DataSource>
+      <hr />
+      <DataSource
+        resourceName="user"
+        getDataFunc={() => getUserFromLocalStorage(123)}
       >
         <UserInfo />
       </DataSource>

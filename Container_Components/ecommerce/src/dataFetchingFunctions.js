@@ -10,4 +10,9 @@ const getUserDataByID = async (userId) => {
     return response;
 }
 
-export { getServerData, getUserDataByID }
+const getUserFromLocalStorage = (userId) => {
+    const user = localStorage.getItem(userId);
+    return JSON.parse(user);
+}
+
+export { getServerData, getUserDataByID, getUserFromLocalStorage }
