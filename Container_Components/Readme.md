@@ -70,6 +70,8 @@ Now, instead of having a container that loads a specific type of resource, let's
 [Code Example](ecommerce/README.md#making-resource-loader)
 
 ## 4: Ecommerce 4
-The `ResourceLoader` is a good stopping point. However we can go one step ahead and make a component which doesn't even know where its data is coming from.
+The `ResourceLoader` is a good stopping point. However we can go one step ahead and make a component which doesn't even know where its data is coming from. Let's call it `DataSource` and we replace the `resourceUrl` prop by `getDataFunc = () => {}` prop which accepts a functiont o fetch data.
+
+And we separate the fetching login in a file `dataFetchingFunctions.js` from where function required for specific needs like `getUserDataByID` can be imported and used in `jsx`.
 
 [Code Example](ecommerce/README.md#making-datasource)
