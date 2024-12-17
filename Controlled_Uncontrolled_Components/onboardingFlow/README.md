@@ -204,7 +204,7 @@ const WrapperForControlledOnboardingFlow = () => {
 }
 ```
 
-> See that `Controlled Version` gives us the ability to see the data and dynamically render steps `jsx {onboardingData.age >=62 && <StepDiscount />}`
+> See that `Controlled Version` gives us the ability to see the data and dynamically render steps ```jsx {onboardingData.age >=62 && <StepDiscount />}```
 
 Also note that in `ControlledOnboardingFlow`
 ```jsx

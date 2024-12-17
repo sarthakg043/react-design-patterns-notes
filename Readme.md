@@ -23,6 +23,7 @@ Some of the key benefits of using design patterns in React include:
 1. [Layout Components](#1-layout-components)
 2. [Container Components](#2-container-components)
 3. [Controlled and Uncontrolled Components](#3-controlled-and-uncontrolled-components)
+4. [Higher Order Components](#4-higher-order-components)
 
 ## 1. Layout Components
 Separate the component and the layout
@@ -146,5 +147,10 @@ const MyComponent = ({ data, changeData, onSubmit }) = {
 1. [Forms](Controlled_Uncontrolled_Components/forms/README.md)
 2. [Modals](Controlled_Uncontrolled_Components/modals/README.md)
 3. [Onboarding Flows](Controlled_Uncontrolled_Components/onboardingFlow/README.md)
+
+## 4. Higher Order Components
+A component that returns another component instead of `JSX`.
+
+### [Example Code](Higher_Order_Components/Readme.md)
 
 
