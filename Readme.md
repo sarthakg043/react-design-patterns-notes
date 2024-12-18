@@ -24,6 +24,7 @@ Some of the key benefits of using design patterns in React include:
 2. [Container Components](#2-container-components)
 3. [Controlled and Uncontrolled Components](#3-controlled-and-uncontrolled-components)
 4. [Higher Order Components](#4-higher-order-components)
+5. [Difference between HOCs and Container Components](#difference-between-hoc-and-container-components)
 
 ## 1. Layout Components
 Separate the component and the layout
@@ -149,8 +150,13 @@ const MyComponent = ({ data, changeData, onSubmit }) = {
 3. [Onboarding Flows](Controlled_Uncontrolled_Components/onboardingFlow/README.md)
 
 ## 4. Higher Order Components
-A component that returns another component instead of `JSX`.
+- A component that returns another component instead of `JSX`.
+- Higher Order Components are just functions.
+
+They are used for 
+- sharing complex behavior between multiple components (much like with container components)
+- adding extra functionality to existing components.
 
 ### [Example Code](Higher_Order_Components/Readme.md)
-
+1. [hocs](Higher_Order_Components/hocs/README.md)
 
